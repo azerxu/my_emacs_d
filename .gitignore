@@ -1,3 +1,4 @@
 elpa/
-init.el~
 auto-save-list/
+*.dat
+*~

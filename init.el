@@ -1,106 +1,32 @@
-;;; package --- Summary
+;;; Package: init.el --- Summary
 ;;; Commnentary:
 ;;; Code:
 
-(setq inhibit-startup-message t)
+;; Add init-lisp package directory to load-path for require loading package
+(add-to-list 'load-path (expand-file-name "init-lisp" user-emacs-directory))
 
-(menu-bar-mode -1)			; Disable menubar
-(scroll-bar-mode -1)			; Disable visible scrollbar
-(tool-bar-mode -1)			; Disable the toolbar
-(tooltip-mode -1)			; Disable tooltips
-(set-fringe-mode 10)			; Give some breathing room
-
-;; Set up the visible bell
-(setq visible-bell t)
-
-;; font setting
-(set-face-attribute 'default nil :font "UbuntuMono NFM" :height 144)
-
-;; setting theme
-;; (load-theme 'tango-dark)
-(load-theme 'wombat)
-
-;; Make ESC quit prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
-
-
-;; Initialize package sources
-(require 'package)
-
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
-			 ("elpa" . "https://elpa.gnu.org/packages/")))
-
-(package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
-
-;; Initialize use-package on non-Linux platforms
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-
-(require 'use-package)
-(setq use-package-always-ensure t)
-
-(use-package command-log-mode)
-;; (set-face-attribute 'command-log-key nil :font "UbuntuMono NFM" :height 48)
-
-
-(use-package swiper)
-(use-package counsel)
-
-
-;; Use Ivy and Counsel for completions
-(use-package ivy
-  :diminish
-  :bind (("C-s" . swiper)
-	 :map ivy-minibuffer-map
-	 ("TAB" . ivy-alt-done)
-	 ("C-l" . ivy-alt-done)
-	 ("C-j" . ivy-next-line)
-	 ("C-k" . ivy-previous-line)
-	 :map ivy-switch-buffer-map
-	 ("C-k" . ivy-previous-line)
-	 ("C-l" . ivy-done)
-	 ("C-d" . ivy-switch-buffer-kill)
-	 :map ivy-reverse-i-search-map
-	 ("C-k" . ivy-previous-line)
-	 ("C-d" . ivy-reverse-i-search-kill))
-  :config
-  (ivy-mode 1))
-
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(require 'init-options)			; emacs通用设置
+(require 'init-package)			; 安装第三方包
+(require 'init-theme)			; 设置主题
+(require 'init-ivy)			; 自动补全
 
 
 
 
 (provide 'init)
 ;;; init.el ends here
-
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("60ada0ff6b91687f1a04cc17ad04119e59a7542644c7c59fc135909499400ab8" "be84a2e5c70f991051d4aaf0f049fa11c172e5d784727e0b525565bb1533ec78" "b99e334a4019a2caa71e1d6445fc346c6f074a05fcbb989800ecbe54474ae1b0" "944d52450c57b7cbba08f9b3d08095eb7a5541b0ecfb3a0a9ecd4a18f3c28948" default))
+ '(package-selected-packages
+   '(all-the-icons doom-themes doom-thems helpful ivy-rich ivy-rick which-key rainbow-delimiters use-package doom-modeline counsel command-log-mode)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
