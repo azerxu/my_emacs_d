@@ -1,3 +1,7 @@
+;;; package --- Summary
+;;; Commnentary:
+;;; Code:
+
 (setq inhibit-startup-message t)
 
 (menu-bar-mode -1)			; Disable menubar
@@ -13,7 +17,12 @@
 (set-face-attribute 'default nil :font "UbuntuMono NFM" :height 144)
 
 ;; setting theme
-(load-theme 'tango-dark)
+;; (load-theme 'tango-dark)
+(load-theme 'wombat)
+
+;; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
 
 
 ;; Initialize package sources
@@ -35,4 +44,63 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
+
+(use-package command-log-mode)
+;; (set-face-attribute 'command-log-key nil :font "UbuntuMono NFM" :height 48)
+
+
+(use-package swiper)
+(use-package counsel)
+
+
+;; Use Ivy and Counsel for completions
+(use-package ivy
+  :diminish
+  :bind (("C-s" . swiper)
+	 :map ivy-minibuffer-map
+	 ("TAB" . ivy-alt-done)
+	 ("C-l" . ivy-alt-done)
+	 ("C-j" . ivy-next-line)
+	 ("C-k" . ivy-previous-line)
+	 :map ivy-switch-buffer-map
+	 ("C-k" . ivy-previous-line)
+	 ("C-l" . ivy-done)
+	 ("C-d" . ivy-switch-buffer-kill)
+	 :map ivy-reverse-i-search-map
+	 ("C-k" . ivy-previous-line)
+	 ("C-d" . ivy-reverse-i-search-kill))
+  :config
+  (ivy-mode 1))
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 15)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(provide 'init)
+;;; init.el ends here
 
