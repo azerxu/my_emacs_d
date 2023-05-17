@@ -5,12 +5,14 @@
 ;; Add init-lisp package directory to load-path for require loading package
 (add-to-list 'load-path (expand-file-name "init-lisp" user-emacs-directory))
 
-(require 'init-options)			; emacs通用设置
+(require 'init-font)			; 设置字体
+(require 'init-options)			; EMACS通用设置
 (require 'init-package)			; 安装第三方包
 (require 'init-keys)			; 设置自定义快捷键
-(require 'init-evil)			; setting emacs兼容vim
+(require 'init-evil)			; 设置Evil-Mode兼容vim
 (require 'init-theme)			; 设置主题
 (require 'init-ivy)			; 自动补全
+(require 'init-git)			; 设置git
 
 
 
