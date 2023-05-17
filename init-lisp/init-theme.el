@@ -9,10 +9,12 @@
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
 
-(use-package doom-themes)
+(use-package doom-themes
+  :init (load-theme 'doom-one t))
 
+(setq all-the-icons-scale-factor 2.1)
 ;; setting theme
-(load-theme 'wombat t)
+;; (load-theme 'wombat t)
 
 
 (provide 'init-theme)

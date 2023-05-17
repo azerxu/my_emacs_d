@@ -16,8 +16,6 @@
 ;; font setting
 (set-face-attribute 'default nil :font "UbuntuMono NFM" :height 144)
 
-;; Make ESC quit prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Setting number line
 (column-number-mode)
@@ -29,6 +27,29 @@
 		shell-mode-hook
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+
+;; 可以避免生成*.*~文件
+;; (setq-default make-backup-files nil)
+
+
+
+;;以 y/n代表 yes/no
+(fset 'yes-or-no-p 'y-or-n-p)
+
+
+;; trailing spaces when saving a file
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; ************************************************************
+;; Create directories that don't exist while creating a new file in emacs
+;; ************************************************************
+(add-hook 'before-save-hook
+          (lambda ()
+            (when buffer-file-name
+              (let ((dir (file-name-directory buffer-file-name)))
+                (when (not (file-exists-p dir))
+                  (make-directory dir t))))))
 
 
 
