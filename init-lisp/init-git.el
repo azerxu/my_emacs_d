@@ -7,8 +7,7 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
-;; (use-package evil-magit
-;;   :after magit)
+(use-package forge)
 
 ;; Add a super-convenient global binding for magit-status since
 (global-set-key (kbd "C-M-;") 'magit-status)
