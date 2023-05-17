@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
@@ -22,8 +23,13 @@
 
   (general-create-definer rune/leader-keys
 			  :keymaps '(normal insert visual emacs)
-			  :prefix "SPC"
-			  :global-prefix "S-SPC")
+			  :prefix "C-x"
+			  :global-prefix "C-x")
+
+  (general-create-definer dw/leader-key-def
+			  :keymaps '(normal insert emacs)
+			  :prefix "C-x")
+
   (rune/leader-keys
    "t"  '(:ignore t :which-key "toggles")
    "tt" '(counsel-load-theme :which-key "choose theme")))
