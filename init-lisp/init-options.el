@@ -13,9 +13,6 @@
 ;; Set up the visible bell
 (setq visible-bell t)
 
-;; font setting
-(set-face-attribute 'default nil :font "UbuntuMono NFM" :height 144)
-
 
 ;; Setting number line
 (column-number-mode)
@@ -31,7 +28,6 @@
 
 ;; 可以避免生成*.*~文件
 ;; (setq-default make-backup-files nil)
-
 
 
 ;;以 y/n代表 yes/no
