@@ -21,7 +21,6 @@
   (setq evil-want-keybinding nil)
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump nil)
-  :hook (evil-mode . rune/evil-hook)
   :config
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
@@ -30,16 +29,17 @@
   (define-key evil-insert-state-map (kbd "C-a") 'evil-beginning-of-line)
 
   ;; Use visual line motions even outside of visual-line-mode buffers
-  ;; (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  ;; (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
 
   (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal))
+  ;; :hook (evil-mode . rune/evil-hook))
 
-;; (use-package evil-collection
-;;   :after evil
-;;   :config
-;;   (evil-collection-init))
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
 
 (use-package hydra)
 
@@ -51,7 +51,7 @@
 
 (rune/leader-keys
   "ts" '(hydra-text-scale/body :which-key "scale text"))
-  
+
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
