@@ -180,8 +180,20 @@
   (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
 
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)))
 
+(setq org-confirm-babel-evaluate nil)
 
+(push '("conf" . conf-unix) org-src-lang-modes)
+
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
 
 (provide 'init-org)
 ;;; init-org.el ends here

@@ -46,6 +46,7 @@
     "o"  '(:ignore t :which-key "org")
     "oa" '(org-agenda :which-key "org agenda")
     "oc" '(org-capture :which-key "org capture")
+
     "t"  '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")))
 
