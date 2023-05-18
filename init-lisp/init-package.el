@@ -23,7 +23,7 @@
 (setq use-package-always-ensure t)
 
 
-(use-package command-log-mode)
+;; (use-package command-log-mode)
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
