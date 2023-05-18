@@ -16,6 +16,7 @@
 (require 'init-projectile)		; 设置projectile
 (require 'init-org)			; 设置org
 (require 'init-lsp)			; 设置lsp language server protocol
+(require 'init-term)			; 设置vterm
 
 
 

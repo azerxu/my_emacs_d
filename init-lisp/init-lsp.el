@@ -21,7 +21,7 @@
   :hook (lsp-mode . company-mode)
   :bind
   (:map company-active-map
-	("<tab>" . company-complete-selection))
+	("<C-l>" . company-complete-selection))
   (:map lsp-mode-map
 	("<tab>" . company-indent-or-complete-common))
   :custom
@@ -30,7 +30,6 @@
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
-
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
