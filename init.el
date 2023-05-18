@@ -13,6 +13,8 @@
 (require 'init-theme)			; 设置主题
 (require 'init-ivy)			; 自动补全
 (require 'init-git)			; 设置git
+(require 'init-projectile)		; 设置projectile
+(require 'init-org)			; 设置org
 
 
 
