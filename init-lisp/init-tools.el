@@ -15,7 +15,7 @@
 
 (use-package zoom-window
   :config
-  (setq zoom-window-mode-line-color nil)
+  (setq zoom-window-mode-line-color nil))
 
 (general-define-key "C-c z" 'zoom-window-zoom)
 
