@@ -7,12 +7,12 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
-(use-package forge)
+;; (use-package forge)
 
 ;; Add a super-convenient global binding for magit-status since
 (global-set-key (kbd "C-M-;") 'magit-status)
 
-(dw/leader-key-def
+(efs/leader-key-def
  "g"    '(:ignore t :which-key "git")
  "gm"   'magit-commit
  "gs"   'magit-status

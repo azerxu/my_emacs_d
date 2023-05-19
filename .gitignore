@@ -1,6 +1,7 @@
 elpa/
 auto-save-list/
 transient/
+test*
 *.dat
 *~
 *.eld

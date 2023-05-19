@@ -33,26 +33,26 @@
   :config
   (general-evil-setup t)
 
-  (general-create-definer rune/leader-keys
+  (general-create-definer efs/leader-key-def
 			  :keymaps '(normal insert visual emacs)
 			  :prefix "C-x"
 			  :global-prefix "C-x")
 
-  (general-create-definer dw/leader-key-def
-			  :keymaps '(normal insert emacs)
-			  :prefix "C-x")
-
-  (rune/leader-keys
+  (efs/leader-key-def
     "o"  '(:ignore t :which-key "org")
     "oa" '(org-agenda :which-key "org agenda")
     "oc" '(org-capture :which-key "org capture")
+
+    "w"  '(:ignore t :which-key "window")
+    "wz" '(zoom-window-zoom :which-key "zoom window")
+    "w|" '(split-window-horizontally :which-key "split window horizon")
+    "w-" '(split-window-vertically :which-key "split window vertically")
 
     "t"  '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")))
 
 
-(general-define-key
- "C-M-j" 'counsel-switch-buffer)
+(general-define-key "C-M-j" 'counsel-switch-buffer)
 
 
 (provide 'init-keys)

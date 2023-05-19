@@ -1,4 +1,4 @@
-;;; Package: init-options.el --- Summary
+;;; Package: init-ui.el --- Summary
 ;;; Commentary:
 ;;; Code:
 
@@ -49,5 +49,5 @@
 
 
 
-(provide 'init-options)
-;;; init-options.el ends here
+(provide 'init-ui)
+;;; init-ui.el ends here

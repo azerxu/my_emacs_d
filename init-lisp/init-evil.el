@@ -2,7 +2,7 @@
 ;;; Commnentary:
 ;;; Code:
 
-(defun rune/evil-hook ()
+(defun efs/evil-hook ()
   (dolist (mode '(custom-mode
 		  eshell-mode
 		  git-rebase-mode
@@ -49,7 +49,7 @@
   ("k" text-scale-decrease "out")
   ("f" nil "finished" :exit 1))
 
-(rune/leader-keys
+(efs/leader-key-def
   "ts" '(hydra-text-scale/body :which-key "scale text"))
 
 

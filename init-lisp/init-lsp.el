@@ -18,10 +18,11 @@
 
 (use-package company
   :after lsp-mode
-  :hook (lsp-mode . company-mode)
+  :hook (prog-mode . company-mode)
   :bind
   (:map company-active-map
-	("<C-l>" . company-complete-selection))
+	("<tab>" . company-select-next-or-abort)
+	("C-l" . company-complete-selection))
   (:map lsp-mode-map
 	("<tab>" . company-indent-or-complete-common))
   :custom
