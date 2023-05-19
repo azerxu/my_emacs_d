@@ -23,7 +23,8 @@
 (global-auto-revert-mode 1)
 
 ;; Revert Dired and other buffers
-(setq global-auto-revert-non-file-buffers t)
+;; (setq global-auto-revert-non-file-buffers t)
+
 
 (provide 'init-setting)
 ;;; init-setting.el ends here
