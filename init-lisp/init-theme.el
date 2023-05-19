@@ -4,6 +4,8 @@
 
 (use-package all-the-icons)
 
+(setq all-the-icons-scale-factor 0.8)
+
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1)
@@ -11,11 +13,6 @@
 
 (use-package doom-themes
   :init (load-theme 'doom-one t))
-
-(setq all-the-icons-scale-factor 2.1)
-;; setting theme
-;; (load-theme 'wombat t)
-
 
 (provide 'init-theme)
 ;;; init-theme.el ends here
