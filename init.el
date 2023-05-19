@@ -7,6 +7,7 @@
 
 (require 'init-font)			; 设置字体
 (require 'init-ui)	    		; EMACS通用设置
+(require 'init-setting)			; 一些有用的设置
 (require 'init-package)			; 安装第三方包
 (require 'init-tools)			; 设置通用工具
 (require 'init-keys)			; 设置自定义快捷键
@@ -21,19 +22,6 @@
 (require 'init-python)			; 设置python
 (require 'init-dired)			; 设置dired file manager
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(diff-hl git-gutter-fringe git-gutter zoom-window dired-hide-dotfiles dired-open all-the-icons-dired dired-single python-mode use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 (provide 'init)
 ;;; init.el ends here
