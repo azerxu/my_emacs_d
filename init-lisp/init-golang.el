@@ -15,6 +15,7 @@
 ;; install init-go
 (require 'go-autocomplete)
 
+(use-package go-autocomple)
 
 
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/ac-dict")

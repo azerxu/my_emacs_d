@@ -5,3 +5,7 @@ test*
 *.dat
 *~
 *.eld
+bookmarks
+history
+places
+recentf

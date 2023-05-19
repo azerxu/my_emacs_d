@@ -21,10 +21,12 @@
   :hook (prog-mode . company-mode)
   :bind
   (:map company-active-map
-	("<tab>" . company-select-next-or-abort)
+	("S-<tab>" . company-select-previous)
+	("<tab>" . company-select-next-if-tooltip-visible-or-complete-selection)
 	("C-l" . company-complete-selection))
   (:map lsp-mode-map
-	("<tab>" . company-indent-or-complete-common))
+	("<tab>" . company-select-next-if-tooltip-visible-or-complete-selection))
+	;; ("<tab>" . company-indent-or-complete-common))
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
