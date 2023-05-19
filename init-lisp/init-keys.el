@@ -22,7 +22,7 @@
 
 
 ;; 切换buffer带预览
-;; (global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
+(global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
 
 
 (define-key emacs-lisp-mode-map (kbd "C-x M-t") 'counsel-load-theme)
@@ -50,9 +50,6 @@
 
     "t"  '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")))
-
-
-(general-define-key "C-M-j" 'counsel-switch-buffer)
 
 
 (provide 'init-keys)
