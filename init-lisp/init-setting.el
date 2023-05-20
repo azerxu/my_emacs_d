@@ -2,6 +2,11 @@
 ;;; Commnentary:
 ;;; Code:
 
+(autoload 'xclip-set-selection "xclip" "" t)
+(autoload 'xclip-get-selection "xclip" "" t)
+
+(hl-line-mode t)
+
 ; remember recent used file
 (recentf-mode 1)
 
@@ -25,6 +30,8 @@
 ;; Revert Dired and other buffers
 ;; (setq global-auto-revert-non-file-buffers t)
 
+;; Use spaces instead of tabs
+(setq-default indent-tabs-mode nil)
 
 (provide 'init-setting)
 ;;; init-setting.el ends here
