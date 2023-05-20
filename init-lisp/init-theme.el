@@ -4,12 +4,13 @@
 
 (use-package all-the-icons)
 
-(setq all-the-icons-scale-factor 0.8)
+(setq all-the-icons-scale-factor 1)
 
 (use-package doom-modeline
-  :ensure t
   :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
+  :custom ((doom-modeline-height 15)
+	   (doom-modeline-bar-width 6)
+	   (doom-modeline-minor-modes t)))
 
 (use-package doom-themes
   :init (load-theme 'doom-one t))
