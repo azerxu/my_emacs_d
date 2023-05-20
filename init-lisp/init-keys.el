@@ -21,10 +21,6 @@
 (define-key global-map (kbd "C-S-o") 'vi-open-line-below)
 
 
-;; 切换buffer带预览
-(global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
-
-
 (define-key emacs-lisp-mode-map (kbd "C-x M-t") 'counsel-load-theme)
 
 

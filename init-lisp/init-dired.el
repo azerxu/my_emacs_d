@@ -30,10 +30,10 @@
 				("mkv" . "mpv"))))
 
 (use-package dired-hide-dotfiles
-  :hook (dired-mode . dired-hide-dotfiles-mode)
   :config
   (evil-collection-define-key 'normal 'dired-mode-map
-    "H" 'dired-hide-dotfiles-mode))
+    "H" 'dired-hide-dotfiles-mode)
+  :hook (dired-mode . dired-hide-dotfiles-mode))
 
 
 (provide 'init-dired)
