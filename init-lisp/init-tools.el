@@ -17,7 +17,8 @@
   :config
   (setq zoom-window-mode-line-color nil))
 
-(general-define-key "C-c z" 'zoom-window-zoom)
+;; (general-define-key "C-c z" 'zoom-window-zoom)
+(global-set-key (kbd "C-c z") 'zoom-window-zoom)
 
 
 (use-package helpful
