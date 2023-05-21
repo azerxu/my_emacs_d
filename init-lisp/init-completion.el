@@ -60,10 +60,10 @@
 
 (use-package embark
   :ensure t
-  :bind
-  (("C-." . embark-act)                 ; pick some comfortale binding
-   ("C-;" . embark-dwim)                ; good alternative: M-.
-   ("C-h B" . embark-bindings))         ; alternative for "describe binding
+  :bind (:map vertico-map
+              ("C-." . embark-act)                 ; pick some comfortale binding
+              ("C-;" . embark-dwim)                ; good alternative: M-.
+              ("C-h B" . embark-bindings))         ; alternative for "describe binding
   :init
   ;; Optionally replace the key help with a completing-read interface
   (setq prefix-help-command #'embark-prefix-help-command))
