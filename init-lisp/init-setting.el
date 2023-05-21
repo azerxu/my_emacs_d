@@ -5,6 +5,13 @@
 (autoload 'xclip-set-selection "xclip" "" t)
 (autoload 'xclip-get-selection "xclip" "" t)
 
+;; 可以避免生成*.*~文件
+;; (setq-default make-backup-files nil)
+
+;;以 y/n代表 yes/no
+(fset 'yes-or-no-p 'y-or-n-p)
+
+
 (hl-line-mode t)
 
 ; remember recent used file
@@ -32,6 +39,23 @@
 
 ;; Use spaces instead of tabs
 (setq-default indent-tabs-mode nil)
+
+;; trailing spaces when saving a file
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; ************************************************************
+;; Create directories that don't exist while creating a new file in emacs
+;; ************************************************************
+(add-hook 'before-save-hook
+          (lambda ()
+            (when buffer-file-name
+              (let ((dir (file-name-directory buffer-file-name)))
+                (when (not (file-exists-p dir))
+                  (make-directory dir t))))))
+
+
+
+
 
 (provide 'init-setting)
 ;;; init-setting.el ends here
