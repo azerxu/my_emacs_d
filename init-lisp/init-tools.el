@@ -4,6 +4,13 @@
 
 ;; (use-package command-log-mode)
 
+
+(use-package paredit
+  :init (paredit-mode 1)
+  :diminish paredit-mode)
+
+
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
