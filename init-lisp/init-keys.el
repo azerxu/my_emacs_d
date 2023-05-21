@@ -7,8 +7,8 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; 设置注释选择区域快捷键
-(global-set-key (kbd "M-o") 'comment-or-uncomment-region)
-
+(global-set-key (kbd "s-o") 'comment-or-uncomment-region)
+(global-set-key (kbd "M-o") 'comment-line)
 
 
 (defun vi-open-line-below ()
