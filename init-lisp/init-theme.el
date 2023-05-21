@@ -4,7 +4,7 @@
 
 (use-package all-the-icons)
 
-(setq all-the-icons-scale-factor 1)
+(setq all-the-icons-scale-factor 0.8)
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
