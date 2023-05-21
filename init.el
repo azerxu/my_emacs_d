@@ -22,8 +22,11 @@
 (require 'init-org)                 ; 设置org
 (require 'init-lsp)                 ; 设置lsp language server protocol
 (require 'init-term)                ; 设置vterm
-(require 'init-python)              ; 设置python
 (require 'init-dired)               ; 设置dired file manager
+(require 'init-python)              ; 设置python
+(require 'init-lua)                 ; 设置lua
+
+
 (require 'init-present)             ; show org as PPT
 
 
