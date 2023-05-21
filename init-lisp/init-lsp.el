@@ -18,20 +18,22 @@
 
 (use-package company
   :after lsp-mode
+  :diminish company-mode
   :hook (prog-mode . company-mode)
   :bind
   (:map company-active-map
-	("S-<tab>" . company-select-previous)
-	("<tab>" . company-select-next-if-tooltip-visible-or-complete-selection)
+	("<tab>" . company-complete-selection)
 	("C-l" . company-complete-selection))
   (:map lsp-mode-map
-	("<tab>" . company-select-next-if-tooltip-visible-or-complete-selection))
-	;; ("<tab>" . company-indent-or-complete-common))
+	("<tab>" . company-indent-or-complete-common))
   :custom
+  (company-show-numbers t)
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
 
+
 (use-package company-box
+  :diminish company-box-mode
   :hook (company-mode . company-box-mode))
 
 (use-package lsp-ui
@@ -42,8 +44,15 @@
 (use-package lsp-treemacs
   :after lsp)
 
-(use-package lsp-ivy)
+;; (use-package lsp-ivy)
 
+(use-package company-tabnine
+  :ensure t
+  :init (company-tabnine 1)
+  :config
+  (add-to-list 'company-backends #'company-tabnine))
+
+;; (require 'company-tabnine)
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
