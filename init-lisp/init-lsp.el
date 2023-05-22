@@ -47,12 +47,12 @@
 ;; (use-package lsp-ivy)
 
 (use-package company-tabnine
-  :ensure t
-  :init (company-tabnine 1)
-  :config
-  (add-to-list 'company-backends #'company-tabnine))
+  :commands (company-tabnine))
+  ;; :init (company-tabnine 1))
+;;   :config
+;;   (add-to-list 'company-backends #'company-tabnine))
 
-;; (require 'company-tabnine)
+;; ;; (require 'company-tabnine)
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
