@@ -3,7 +3,9 @@
 ;;; Code:
 
 (use-package lua-mode
-  :init (lua-mode))
+  :ensure t
+  :hook (lua-mode . lsp-deferred))
+
 
 
 (provide 'init-lua)
