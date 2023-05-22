@@ -4,7 +4,7 @@
 
 (use-package visual-fill-column
   :custom
-  (visual-fill-column-width 50)
+  (visual-fill-column-width 100)
   (visual-fill-column-center-text t))
 
 

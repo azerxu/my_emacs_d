@@ -149,7 +149,7 @@
 
 
 (defun efs/org-mode-visual-fill ()
-  (setq visual-fill-column-width 50
+  (setq visual-fill-column-width 100
 	visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
