@@ -4,12 +4,12 @@
 
 ;; (use-package command-log-mode)
 
+;;; remove minor-mode name from modeline
+(use-package diminish)
 
 (use-package paredit
-  :init (paredit-mode 1)
-  :diminish paredit-mode)
-
-
+  :diminish (paredit-mode)
+  :hook (prog-mode . paredit-mode))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -51,6 +51,32 @@
   "ts" '(hydra-text-scale/body :which-key "scale text"))
 
 
+;;; remove minor mode from modeline
+(defvar mode-line-cleaner-alist
+  '((auto-complete-mode . " α")
+    (yas/minor-mode . " υ")
+    (company-mode . " ψ")
+    (paredit-mode . " π"))
+  "Alist for `clean-mode-line'.
+
+When you add a new element to the alist, keep in mind that you must pass the correct
+minor/major mode symbol and a string you want to use in the modeline")
+
+(defun clean-mode-line ()
+  (interactive)
+  (dolist (cleaner mode-line-cleaner-alist)
+    (let* ((mode (car cleaner))
+           (mode-str (cdr cleaner))
+           (old-mode-str (cdr (assq mode minor-mode-alist))))
+      (when old-mode-str
+        (setcar old-mode-str mode-str))
+      ;; major mode
+      (when (eq mode major-mode)
+        (setq mode-name mode-str)))))
+
+
+
+(add-hook 'after-change-major-mode-hook 'clean-mode-line)
 
 (provide 'init-tools)
 ;;; init-tools.el ends here
