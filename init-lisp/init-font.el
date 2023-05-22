@@ -25,8 +25,8 @@
 (defun efs/set-font-faces ()
   (message "Setting faces!")
   (set-face-attribute 'default nil
-                      :font "UbuntuMono Nerd Font Mono"
-                      :height 144)
+                      :font "MesloLGSDZ Nerd Font Mono"
+                      :height 120)
 
   ;; Set the fixed pitch face
   (set-face-attribute 'fixed-pitch nil
