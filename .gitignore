@@ -13,3 +13,5 @@ straight/
 custom-vars.el
 projects
 backups/
+.cache/
+.lsp-session-v1
