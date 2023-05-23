@@ -17,9 +17,6 @@
   :diminish
   :hook (lua-mode . lsp-deferred))
 
-(use-package )
-
-
 
 (provide 'init-lua)
 ;;; init-lua.el ends here
