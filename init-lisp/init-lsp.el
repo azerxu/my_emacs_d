@@ -8,6 +8,7 @@
 
 
 (use-package lsp-mode
+  :diminish
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . efs/lsp-mode-setup)
   :bind (:map lsp-mode-map
@@ -15,7 +16,7 @@
               ("C-c d" . lsp-describe-thing-at-point)
               ("C-c a" . lsp-execute-code-action))
   :init
-  (setq lsp-keymap-prefix "C-c l")	; or "C-l", "S-l"
+  (setq lsp-keymap-prefix "C-c l")	; or "C-l", "S-l", "C-c l"
   (setq lsp-enable-snippet nil)
   :config
   (lsp-enable-which-key-integration t))
@@ -33,7 +34,8 @@
         ;; ("<tab>" . company-complete-selection)
         ("C-l" . company-complete-selection))
   (:map lsp-mode-map
-        ("<tab>" . company-indent-or-complete-common))
+        ;; ("<tab>" . company-indent-or-complete-common))
+        ("<tab>" . company-select-next-if-tooltip-visible-or-complete-selection))
   :config
   (company-keymap--unbind-quick-access company-active-map)
   ;; (company-tng-mode)
