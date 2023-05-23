@@ -19,7 +19,9 @@
   :bind (:map go-mode-map
               ("C-c C-c" . go-run-buffer)
               ("C-c C-j" . godef-jump)
-	      ("C-c C-d" . godoc)
+              ("C-c D" . godoc)
+              ("C-c C-d" . godoc-at-point)
+              ("<f5>" . recompile)
               ("<f6>" . gofmt))
   :config
   ;; auto gofmt
@@ -34,6 +36,7 @@
   (add-to-list 'exec-path "/home/azer/source/gopath/bin")
   (add-to-list 'exec-path "/home/azer/source/go/bin")
   (setq gofmt-command "goimports")
+  (setq compile-command "go build -v")
   (setq tab-width 4)
   (setq indent-tabs-mode 1))
 
