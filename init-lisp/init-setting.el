@@ -28,6 +28,12 @@
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
 
+;;; Setting auto save and backup file
+(setq auto-save-file-name-transforms
+      '((".*" "~/.config/emacs/auto-save-list/" t))
+      backup-directory-alist
+      '(("." . "~/.config/emacs/backups")))
+
 ;; Don't pop up UI dialogs when prompting
 ;; (setq use-dialog-box nil)
 
@@ -52,9 +58,6 @@
               (let ((dir (file-name-directory buffer-file-name)))
                 (when (not (file-exists-p dir))
                   (make-directory dir t))))))
-
-
-
 
 
 (provide 'init-setting)
