@@ -9,6 +9,8 @@
 
 (use-package paredit
   :diminish (paredit-mode)
+  :bind (:map paredit-mode-map
+              ("M-;" . comment-dwim))
   :hook (prog-mode . paredit-mode))
 
 (use-package rainbow-delimiters
