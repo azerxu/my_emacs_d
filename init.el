@@ -11,27 +11,32 @@
 ;; -------------------------------------------------------------------------
 ;; Default Settings
 ;; -------------------------------------------------------------------------
-(require 'init-font)                ; 设置字体
-(require 'init-ui)                  ; EMACS通用设置
-(require 'init-setting)             ; 一些有用的设置
+(require 'init-font)                    ; 设置字体
+(require 'init-ui)                      ; EMACS通用设置
+(require 'init-setting)                 ; 一些有用的设置
 
 
 ;; -------------------------------------------------------------------------
-;; Package Settings
+;; Package Manager Settings
 ;; -------------------------------------------------------------------------
-(require 'init-package)             ; 设置Package Manager
+(require 'init-package)                 ; 设置Package Manager
 
 
 ;; -------------------------------------------------------------------------
-;; Package Settings
+;; Exwm Settings
 ;; -------------------------------------------------------------------------
-(require 'init-theme)               ; 设置主题
-(require 'init-keys)                ; 设置自定义快捷键
-(require 'init-tools)               ; 设置通用工具
-(require 'init-evil)                ; 设置Evil-Mode兼容vim
-(require 'init-projectile)          ; 设置projectile
-(require 'init-term)                ; 设置vterm
-(require 'init-dired)               ; 设置dired file manager
+;; (require 'init-exwm)                    ; setting exwm
+
+;; -------------------------------------------------------------------------
+;; Tools Settings
+;; -------------------------------------------------------------------------
+(require 'init-theme)                   ; 设置主题
+(require 'init-keys)                    ; 设置自定义快捷键
+(require 'init-tools)                   ; 设置通用工具
+(require 'init-evil)                    ; 设置Evil-Mode兼容vim
+(require 'init-projectile)              ; 设置projectile
+(require 'init-term)                    ; 设置vterm
+(require 'init-dired)                   ; 设置dired file manager
 
 ;; -------------------------------------------------------------------------
 ;; Programming Settings
@@ -41,8 +46,9 @@
 (require 'init-git)                 ; 设置git
 
 ;; Language Setting
-(require 'init-python)              ; 设置python
-(require 'init-lua)                 ; 设置lua
+(require 'init-python)                  ; 设置python
+(require 'init-lua)                     ; 设置lua
+(require 'init-lisp)                    ; setting lisp
 
 
 ;; -------------------------------------------------------------------------

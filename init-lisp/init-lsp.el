@@ -18,14 +18,13 @@
 
 (use-package company
   :after lsp-mode
-  :diminish company-mode
-  :hook (prog-mode . company-mode)
+  :hook (lsp-mode . company-mode)
   :bind
   (:map company-active-map
 	("<tab>" . company-complete-selection)
 	("C-l" . company-complete-selection))
   (:map lsp-mode-map
-	("<tab>" . company-indent-or-complete-common))
+        ("<tab>" . company-indent-or-complete-common))
   :custom
   (company-show-numbers t)
   (company-minimum-prefix-length 1)
