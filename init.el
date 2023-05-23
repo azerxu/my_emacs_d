@@ -41,21 +41,22 @@
 ;; -------------------------------------------------------------------------
 ;; Programming Settings
 ;; -------------------------------------------------------------------------
-(require 'init-completion)          ; completion
-(require 'init-lsp)                 ; 设置lsp language server protocol
-(require 'init-git)                 ; 设置git
+(require 'init-completion)              ; completion
+(require 'init-lsp)                     ; 设置language server protocol
+(require 'init-git)                     ; 设置git
 
 ;; Language Setting
 (require 'init-python)                  ; 设置python
 (require 'init-lua)                     ; 设置lua
 (require 'init-lisp)                    ; setting lisp
+(require 'init-golang)                  ; setting golang
 
 
 ;; -------------------------------------------------------------------------
 ;; Org Setting
 ;; -------------------------------------------------------------------------
-(require 'init-org)                 ; 设置org
-(require 'init-present)             ; show org as PPT
+(require 'init-org)                     ; 设置org
+(require 'init-present)                 ; show org as PPT
 
 
 
