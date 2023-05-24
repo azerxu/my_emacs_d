@@ -11,14 +11,14 @@
 (global-set-key (kbd "M-o") 'comment-line)
 
 
-(defun vi-open-line-below ()
-  "Insert a newline below the current line and put point at beginning."
-    (interactive)
-    (unless (eolp)
-      (end-of-line))
-    (newline-and-indent))
+;; (defun vi-open-line-below ()
+;;   "Insert a newline below the current line and put point at beginning."
+;;     (interactive)
+;;     (unless (eolp)
+;;       (end-of-line))
+;;     (newline-and-indent))
 
-(define-key global-map (kbd "C-S-o") 'vi-open-line-below)
+;; (define-key global-map (kbd "C-S-o") 'vi-open-line-below)
 
 
 (define-key emacs-lisp-mode-map (kbd "C-x M-t") 'counsel-load-theme)
