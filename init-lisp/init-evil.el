@@ -39,6 +39,7 @@
   (define-key evil-insert-state-map (kbd "C-o") 'evil-open-below)
   (define-key evil-insert-state-map (kbd "C-p") 'evil-previous-line)
   (define-key evil-insert-state-map (kbd "C-n") 'evil-next-line)
+  (define-key evil-insert-state-map (kbd "C-y") 'yank)
 
 
   ;; Use visual line motions even outside of visual-line-mode buffers
