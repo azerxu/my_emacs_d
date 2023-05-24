@@ -3,7 +3,8 @@
 ;;; Code:
 
 (defun efs/lsp-mode-setup ()
-  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+  (setq lsp-headerline-breadcrumb-segments
+        '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
 
 
@@ -11,35 +12,70 @@
   :diminish
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . efs/lsp-mode-setup)
-  :bind (:map lsp-mode-map
-              ;; ("C-c l" . lsp-command-map)
-              ("C-c d" . lsp-describe-thing-at-point)
-              ("C-c a" . lsp-execute-code-action))
-  :init
+  :bind
+  (:map lsp-mode-map
+        ("C-c d" . lsp-describe-thing-at-point)
+        ("C-c e" . lsp-treemacs-errors-list)
+        ("C-c a" . lsp-execute-code-action))
+  (:map evil-normal-state-map
+        ("gh" . lsp-describe-thing-at-point))
+ :init
   (setq lsp-keymap-prefix "C-c l")	; or "C-l", "S-l", "C-c l"
   (setq lsp-enable-snippet nil)
+  (setq lsp-enable-symbol-highlighting t)
   :config
+  (efs/leader-key-def
+    "l"   '(:ignore t :which-key "lsp")
+    "lf"  '(lsp-format-buffer :which-key "format buffer")
+    "lr"  '(lsp-rename :which-key "rename"))
   (lsp-enable-which-key-integration t))
+
+
+(use-package lsp-treemacs
+  :after lsp-mode
+  :config
+  (efs/leader-key-def
+    "xx"  '(lsp-treemacs-errors-list :which-key "show errors")))
+
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :hook (lsp-mode . lsp-ui-mode)
+  :config
+  (setq lsp-ui-sideline-show-hover t)
+  (setq lsp-ui-sideline-delay 0.5)
+  (setq lsp-ui-sideline-ignore-duplicate t)
+  (setq lsp-ui-doc-position 'bottom)
+  (setq lsp-ui-doc-delay 5)
+  (setq lsp-ui-doc-alignment 'frame)
+  (setq lsp-ui-doc-header nil)
+  (setq lsp-ui-doc-include-signature t)
+  (setq lsp-ui-use-childframe t)
+  :bind
+  (:map evil-normal-state-map
+        ("gd" . lsp-ui-peek-find-definitions)
+        ("gr" . lsp-ui-peek-find-references))
+  :config
+  (efs/leader-key-def
+    "li"  '(lsp-ui-imenu :which-key "imenu"))
+  :custom
+  (lsp-ui-doc-position 'bottom))
 
 
 (use-package company
   :after lsp-mode
-  :hook ((lsp-mode . company-mode)
-         (emacs-lisp-mode . (lambda ()
-                              (setq-local company-backends '(company-elisp))))
-         (emacs-lisp-mode . company-mode))
+  :hook ((lsp-mode . company-mode))
   :bind
   (:map company-active-map
         ("<tab>" . company-select-next-if-tooltip-visible-or-complete-selection)
-        ;; ("<tab>" . company-complete-selection)
-        ("C-l" . company-complete-selection))
+        ("M-f"   . company-complete-common-or-show-delayed-tooltip)
+        ("C-l"   . company-complete-selection))
   (:map lsp-mode-map
-        ;; ("<tab>" . company-indent-or-complete-common))
-        ("<tab>" . company-select-next-if-tooltip-visible-or-complete-selection))
-  :config
-  (company-keymap--unbind-quick-access company-active-map)
+        ("<tab>" . company-indent-or-complete-common))
+  ;; :config
+  ;; (company-keymap--unbind-quick-access company-active-map)
   ;; (company-tng-mode)
-  (company-tng-configure-default)
+  ;; (company-tng-configure-default)
   :custom
   (company-show-numbers t)
   (company-minimum-prefix-length 1)
@@ -47,28 +83,18 @@
 
 
 (use-package company-box
-  :diminish company-box-mode
+  :diminish
   :hook (company-mode . company-box-mode))
 
-(use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode)
-  :custom
-  (lsp-ui-doc-position 'bottom))
-
-(use-package lsp-treemacs
-  :after lsp)
-
-;; (use-package lsp-ivy)
 
 (use-package company-tabnine
+  ;; :init (company-tabnine 1)
+  ;; :config
+  ;; (require 'company-tabnine)
+  ;; (add-to-list 'company-backends #'company-tabnine)
   :commands (company-tabnine))
-  ;; :init (company-tabnine 1))
-;;   :config
-;;   (add-to-list 'company-backends #'company-tabnine))
 
-;; ;; (require 'company-tabnine)
-
-(use-package flycheck)
+;; (use-package flycheck)
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
