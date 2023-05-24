@@ -7,18 +7,23 @@
 ;;; remove minor-mode name from modeline
 (use-package diminish)
 
+(use-package savehist
+  :init
+  (savehist-mode))
+
+
 (use-package paredit
-  :diminish (paredit-mode)
-  :bind (:map paredit-mode-map
-              ("M-;" . comment-dwim))
-  :hook (prog-mode . paredit-mode))
+  :diminish eldoc-mode
+  ;; :bind (:map paredit-mode-map
+  ;;             ("M-;" . comment-dwim))
+  :hook (emacs-lisp-mode . paredit-mode))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package which-key
   :init (which-key-mode)
-  :diminish which-key-mode
+  :diminish
   :config
   (setq which-key-idle-delay 2))
 
@@ -58,6 +63,8 @@
   '((auto-complete-mode . " α")
     (yas/minor-mode . " υ")
     (company-mode . " ψ")
+    (eldoc-mode . " ε")
+    (evil-collection-unimpaired-mode " θ")
     (paredit-mode . " π"))
   "Alist for `clean-mode-line'.
 

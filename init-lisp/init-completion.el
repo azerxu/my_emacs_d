@@ -27,10 +27,6 @@
   :init
   (vertico-mode))
 
-(use-package savehist
-  :init
-  (savehist-mode))
-
 
 (use-package marginalia
   :after vertico
