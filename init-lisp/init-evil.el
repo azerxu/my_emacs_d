@@ -12,6 +12,9 @@
 (use-package undo-tree
   :diminish
   :config
+  ;; Prevent undo tree files from polluting your git repo
+  (setq undo-tree-history-directory-alist '(("." . "~/.config/emacs/undo-tree-history-directory"))) 
+  (setq undo-tree-auto-save-history t)
   (global-undo-tree-mode))
 
 
