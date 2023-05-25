@@ -138,14 +138,39 @@
   (define-key global-map (kbd "C-c t")
     (lambda () (interactive) (org-capture nil "tt")))
 
-  (setq org-ellipsis " "
+  ;; general key binding
+  (general-def
+    :states 'normal
+    :keymaps 'org-mode-map
+    "t" 'org-todo
+    "<return>" 'org-open-at-point-global
+    "K" 'org-shiftup
+    "J" 'org-shiftdown)
+
+  (general-def
+    :states '(normal insert)
+    :keymaps 'org-mode-map
+    "C-c h" '(org-html-export-as-html :which-key "export html")
+    "M-[" '(org-metaleft :which-key "meta left")
+    "M-]" '(org-metaright :which-key "meta right")
+    "C-M-=" '(org-lint :which-key "org lint"))
+
+  (general-def
+    :prefix ","
+    :states 'normal
+    :keymaps 'org-src-mode-map
+    "b"  '(nil :which-key "org src")
+    "bc" '(org-edit-src-abort :which-key "org src abort")
+    "bb" '(org-edit-src-exit :which-key "org src exit"))
+
+  (setq org-ellipsis " "
 	org-hide-emphasis-markers t))
 
 
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)
   :custom
-  (org-bullets-bullet-list '("" "" "" "" "" "" "" "" "◉" "●" "○")))
+  (org-bullets-bullet-list '("" "" "" "󰸳" "" "" "" "" "" "◉" "●" "○")))
 
 
 (defun efs/org-mode-visual-fill ()
