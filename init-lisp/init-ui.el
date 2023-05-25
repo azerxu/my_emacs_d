@@ -13,6 +13,12 @@
 ;; turn off beeps, make them flash!
 (setq visible-bell t)
 
+(setq default-frame-alist '((left 20)
+                            (width . 120)
+                            (height . 30)
+                            ;; (fullscreen . fullheight)
+                            ))
+
 ;; (push '(tool-bar-lines . 0) default-frame-alist)
 ;; (push '(menu-bar-lines . 0) default-frame-alist)
 ;; (push '(vertical-scroll-bars) default-frame-alist)
