@@ -7,11 +7,20 @@
         '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
 
+;;; variable that controls the maximum amount of data to read from a subprocess in one chunk.
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+
+;;; Increasing the value of gc-cons-threshold can reduce the frequency of garbage collection
+;;; and improve the responsiveness of lsp-mode, but it can also increase the memory usage of Emacs.
+(defun efs/lsp-mode-gc-setup ()
+  (setq gc-cons-threshold 100000000)) ;; 100mb
+
 
 (use-package lsp-mode
   :diminish
   :commands (lsp lsp-deferred)
-  :hook (lsp-mode . efs/lsp-mode-setup)
+  :hook ((lsp-mode . efs/lsp-mode-setup)
+         (lsp-mode . efs/lsp-mode-gc-setup))
   :bind
   (:map lsp-mode-map
         ("C-c d" . lsp-describe-thing-at-point)
@@ -19,7 +28,7 @@
         ("C-c a" . lsp-execute-code-action))
   (:map evil-normal-state-map
         ("gh" . lsp-describe-thing-at-point))
- :init
+  :init
   (setq lsp-keymap-prefix "C-c l")	; or "C-l", "S-l", "C-c l"
   (setq lsp-enable-snippet nil)
   (setq lsp-enable-symbol-highlighting t)
