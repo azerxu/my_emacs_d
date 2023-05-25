@@ -30,8 +30,8 @@
 ;; ------------------------------------------------------------
 ;; Tools Settings
 ;; ------------------------------------------------------------
-(require 'init-theme)                   ; 设置主题
 (require 'init-keys)                    ; 设置自定义快捷键
+(require 'init-theme)                   ; 设置主题
 (require 'init-tools)                   ; 设置通用工具
 (require 'init-evil)                    ; 设置Evil-Mode兼容vim
 (require 'init-projectile)              ; 设置projectile
@@ -58,6 +58,11 @@
 (require 'init-org)                     ; 设置org
 (require 'init-present)                 ; show org as PPT
 
+;; ------------------------------------------------------------
+;; Key Binding Setting
+;; ------------------------------------------------------------
+(require 'init-hydra)                   ; hydra setting
+(require 'init-keymaps)                 ; general setting
 
 
 (provide 'init)

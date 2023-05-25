@@ -46,18 +46,6 @@
   (global-set-key (kbd "C-c C-d") #'helpful-at-point))
 
 
-(use-package hydra)
-
-(defhydra hydra-text-scale (:timeout 4)
-  "scale text"
-  ("j" text-scale-increase "in")
-  ("k" text-scale-decrease "out")
-  ("f" nil "finished" :exit 1))
-
-(efs/leader-key-def
-  "ts" '(hydra-text-scale/body :which-key "scale text"))
-
-
 ;;; remove minor mode from modeline
 (defvar mode-line-cleaner-alist
   '((auto-complete-mode . " α")
