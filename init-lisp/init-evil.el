@@ -33,10 +33,15 @@
   ;; Rebind `universal-argument' to `C-M-u' since `C-u' now scrolls the buffer
   (global-set-key (kbd "C-M-u") 'universal-argument)
 
+  ;; Maps `C-w' `C-d' to delete buffer, the first `C-w' puts you into evil-window-map
+  (define-key evil-window-map (kbd "C-d") 'evil-delete-buffer)
+
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
-  (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
+  (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
+  (define-key evil-insert-state-map (kbd "C-e") 'move-end-of-line)
   (define-key evil-insert-state-map (kbd "C-a") 'evil-beginning-of-line)
+  (define-key evil-insert-state-map (kbd "C-d") 'delete-char)
   (define-key evil-insert-state-map (kbd "C-k") 'paredit-kill)
   (define-key evil-insert-state-map (kbd "C-S-o") 'evil-open-above)
   (define-key evil-insert-state-map (kbd "C-o") 'evil-open-below)
