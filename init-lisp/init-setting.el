@@ -2,6 +2,17 @@
 ;;; Commnentary:
 ;;; Code:
 
+
+;; (setq exec-path '("/usr/bin"
+;;                   "/opt/bin"
+;;                   "~/.local/bin"))
+
+;; (setenv "PATH"
+;;         "/usr/bin"
+;;         "/opt/bin"
+;;         "~/.local/bin")
+
+
 (autoload 'xclip-set-selection "xclip" "" t)
 (autoload 'xclip-get-selection "xclip" "" t)
 
