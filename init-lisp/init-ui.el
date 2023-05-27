@@ -13,15 +13,15 @@
 ;; turn off beeps, make them flash!
 (setq visible-bell t)
 
-(setq default-frame-alist '((left 20)
-                            (width . 120)
+(setq default-frame-alist '((width . 120)
                             (height . 30)
+                            ;; (left 20)
                             ;; (fullscreen . fullheight)
                             ))
 
 ;; (push '(tool-bar-lines . 0) default-frame-alist)
 ;; (push '(menu-bar-lines . 0) default-frame-alist)
-;; (push '(vertical-scroll-bars) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
 ;; (push '(background-color . "#232635") default-frame-alist)
 ;; (push '(foreground-color . "#FFFFFF") default-frame-alist)
 ;; (push '(mouse-color . "white") default-frame-alist)
