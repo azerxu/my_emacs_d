@@ -170,7 +170,7 @@
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)
   :custom
-  (org-bullets-bullet-list '("" "" "" "󰸳" "" "" "" "" "" "◉" "●" "○")))
+  (org-bullets-bullet-list '("" "" "" "" "" "" "" "" "◉" "●" "○" "󰸳")))
 
 
 (defun efs/org-mode-visual-fill ()
