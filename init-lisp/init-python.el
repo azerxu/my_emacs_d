@@ -28,7 +28,6 @@
   (setq lsp-pylsp-plugins-yapf-enabled nil)
   (setq lsp-pylsp-plugins-black-enabled t)
 
-
   ;; Lint
   (setq lsp-pylsp-plugins-pyflakes-enabled nil)
   (setq lsp-pylsp-plugins-pylint-enabled nil)
@@ -40,26 +39,20 @@
   (setq lsp-pylsp-plugins-mccabe-enabled nil)
 
   ;; JEDI
-  (setq lsp-pylsp-plugins-jedi-completion-fuzzy nil)
-  (setq lsp-pylsp-plugins-jedi-completion-include-params nil)
-  (setq lsp-pylsp-plugins-jedi-completion-enabled nil)
-  (setq lsp-pylsp-plugins-jedi-definition-follow-imports nil)
-  (setq lsp-pylsp-plugins-jedi-definition-follow-builtin-imports nil)
-  (setq lsp-pylsp-plugins-jedi-hover-enabled nil)
-  (setq lsp-pylsp-plugins-jedi-references-enabled nil)
-  (setq lsp-pylsp-plugins-jedi-signature-help-enabled nil)
-  (setq lsp-pylsp-plugins-jedi-symbols-enabled nil)
-  (setq lsp-pylsp-plugins-jedi-definition-follow-imports nil)
-  (setq lsp-pylsp-plugins-jedi-definition-follow-builtin-imports nil)
-  (setq lsp-pylsp-plugins-jedi-hover-enabled nil)
-  (setq lsp-pylsp-plugins-jedi-references-enabled nil)
-  (setq lsp-pylsp-plugins-jedi-signature-help-enabled nil)
-  (setq lsp-pylsp-plugins-jedi-symbols-enabled nil)
-  (setq lsp-pylsp-plugins-jedi-symbols-all-scopes nil)
+  (setq lsp-pylsp-plugins-jedi-completion-fuzzy t)
+  (setq lsp-pylsp-plugins-jedi-completion-include-params t)
+  (setq lsp-pylsp-plugins-jedi-completion-enabled t)
+  (setq lsp-pylsp-plugins-jedi-definition-follow-imports t)
+  (setq lsp-pylsp-plugins-jedi-definition-follow-builtin-imports t)
+  (setq lsp-pylsp-plugins-jedi-hover-enabled t)
+  (setq lsp-pylsp-plugins-jedi-references-enabled t)
+  (setq lsp-pylsp-plugins-jedi-signature-help-enabled t)
+  (setq lsp-pylsp-plugins-jedi-symbols-enabled t)
+  (setq lsp-pylsp-plugins-jedi-symbols-all-scopes t)
 
   ;; CUSTOM SETTINGS
-  (setq lsp-pylsp-plugins-mypy-enabled t)
-  (setq lsp-pylsp-plugins-rope-autoimport-enabled t)
+  ;; (setq lsp-pylsp-plugins-mypy-enabled t)
+  ;; (setq lsp-pylsp-plugins-rope-autoimport-enabled t)
   (setq lsp-pylsp-plugins-ruff-enabled t)
   (setq lsp-pylsp-plugins-pyls-isort-enabled t)
 
@@ -96,7 +89,7 @@
   ;;    ("pylsp.plugins.rope_autoimport.enabled" lsp-pylsp-plugins-rope-autoimport-enabled t)
   ;;    ("pylsp.plugins.ruff.enabled" lsp-pylsp-plugins-ruff-enabled t)
   ;;    ("pylsp.plugins.isort.enabled" lsp-pylsp-plugins-isort-enabled t)))
- 
+
 
 
 ;; (use-package lsp-pyright
@@ -117,17 +110,32 @@
 
 (use-package python-mode
   :ensure t
-  :hook (python-mode . lsp-deferred)
+  :hook ((python-mode . lsp-deferred)
+         (python-mode . hs-minor-mode))
+
   :bind (:map python-mode-map
               ("C-c r" . lsp-rename)
               ("C-c f" . lsp-format-buffer)
               ("C-c R" . efs/python-run-buffer))
   :config
   (setq python-indent-offset 4)
+  (python-indent-offset 4)
   (add-to-list 'exec-path "/home/azer/.local/bin")
-  ;; (add-hook 'before-save-hook 'efs/python-format-buffer)
   (add-hook 'before-save-hook 'lsp-format-buffer)
+  (general-def
+   :prefix ","
+   :states 'normal
+   :keymaps 'python-mode-map
+
+   ;; fold code
+   "z" '(:ignore t :which-key "fold")
+   "zi" '(:ignore t :which-key "fold")
+   "za" '(evil-toggle-fold :which-key "toggle fold")
+   "zo" '(:ignore t :which-key "fold")
+
+   )
   :custom
+  (python-indent-offset 4)
   (python-shell-interpreter "python3"))
 
 
