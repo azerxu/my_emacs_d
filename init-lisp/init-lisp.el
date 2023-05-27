@@ -24,6 +24,5 @@
          (emacs-lisp-mode . company-mode)))
 
 
-
 (provide 'init-lisp)
 ;;; init-lisp.el ends here
