@@ -79,8 +79,8 @@
         ("<tab>" . company-select-next-if-tooltip-visible-or-complete-selection)
         ("M-f"   . company-complete-common-or-show-delayed-tooltip)
         ("C-l"   . company-complete-selection))
-  (:map lsp-mode-map
-        ("<tab>" . company-indent-or-complete-common))
+  ;; (:map lsp-mode-map
+  ;;       ("<tab>" . company-indent-or-complete-common))
   ;; :config
   ;; (company-keymap--unbind-quick-access company-active-map)
   ;; (company-tng-mode)
