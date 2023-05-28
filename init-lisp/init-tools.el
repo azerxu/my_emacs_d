@@ -4,6 +4,12 @@
 
 ;; (use-package command-log-mode)
 
+(use-package xclip)
+;;; use xclip in terminal mode
+(if (display-graphic-p)
+    (message "Emacs is running in GUI mode")
+  (xclip-mode 1))
+
 ;;; remove minor-mode name from modeline
 (use-package diminish)
 
