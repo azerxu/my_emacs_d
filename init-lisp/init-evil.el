@@ -65,6 +65,11 @@
   :config
   (evil-collection-init))
 
+(use-package evil-terminal-cursor-changer)
+(unless (display-graphic-p)
+  (require 'evil-terminal-cursor-changer)
+  (evil-terminal-cursor-changer-activate))
+
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
