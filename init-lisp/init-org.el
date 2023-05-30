@@ -20,9 +20,9 @@
   (setq org-log-into-drawer t)
 
   (setq org-agenda-files
-	'("~/source/org/tips.org"
-	  "~/source/org/habit.org"
-	  "~/source/org/todo.org"))
+	'("~/source/code/org/tips.org"
+	  "~/source/code/org/habit.org"
+	  "~/source/code/org/todo.org"))
 
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
@@ -106,33 +106,33 @@
   (setq org-capture-templates
 	`(("t" "Tasks / Projects")
 	  ("tt" "Task" entry
-	   (file "~/source/org/todo.org")
+	   (file "~/source/code/org/todo.org")
            "* TODO %?\n  %U\n" :empty-lines 1)
 	  ("ti" "Tips" entry
-	   (file "~/source/org/tips.org")
+	   (file "~/source/code/org/tips.org")
            "* %?\n  %U\n  %i" :empty-lines 1)
 
 
 	  ("j" "Journal Entries")
 	  ("jj" "Journal" entry
-           (file+olp+datetree "~/source/org/Journal.org")
+           (file+olp+datetree "~/source/code/org/Journal.org")
            "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
            :clock-in :clock-resume
            :empty-lines 1)
 	  ("jm" "Meeting" entry
-           (file+olp+datetree "~/source/org/Journal.org")
+           (file+olp+datetree "~/source/code/org/Journal.org")
            "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
            :clock-in :clock-resume
            :empty-lines 1)
 
 	  ("w" "Workflows")
 	  ("we" "Checking Email" entry
-	   (file+olp+datetree "~/source/org/Journal.org")
+	   (file+olp+datetree "~/source/code/org/Journal.org")
            "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1)
 
 	  ("m" "Metrics Capture")
 	  ("mw" "Weight" table-line
-	   (file+headline "~/source/org/Metrics.org" "Weight")
+	   (file+headline "~/source/code/org/Metrics.org" "Weight")
 	   "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
 
   (define-key global-map (kbd "C-c t")
