@@ -54,7 +54,8 @@
   (setq lsp-ui-sideline-show-hover t)
   (setq lsp-ui-sideline-delay 0.5)
   (setq lsp-ui-sideline-ignore-duplicate t)
-  (setq lsp-ui-doc-position 'bottom)
+  ;; (setq lsp-ui-doc-position 'bottom)
+  (setq lsp-ui-doc-position 'top)
   (setq lsp-ui-doc-delay 5)
   (setq lsp-ui-doc-alignment 'frame)
   (setq lsp-ui-doc-header nil)
@@ -68,7 +69,7 @@
   (efs/leader-key-def
     "li"  '(lsp-ui-imenu :which-key "imenu"))
   :custom
-  (lsp-ui-doc-position 'bottom))
+  (lsp-ui-doc-position 'top))
 
 
 (use-package company
