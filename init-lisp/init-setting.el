@@ -22,7 +22,11 @@
 ;;以 y/n代表 yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;;; use sh-mode for any file that ends with .cmd .bashrc
+(add-to-list 'auto-mode-alist '(".cmd" . sh-mode))
+(add-to-list 'auto-mode-alist '(".bashrc" . sh-mode))
 
+;;; setting for fold code
 (hl-line-mode t)
 
 ; remember recent used file
