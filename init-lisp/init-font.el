@@ -33,11 +33,18 @@
                       :font "UbuntuMono Nerd Font Mono"
                       :height 144)
 
+  ; ;; Set the variable pitch face
+  ; (set-face-attribute 'variable-pitch nil
+  ;                     :font "Sarasa Mono SC"
+  ;                     :weight 'regular
+  ;                     :height 128))
+
   ;; Set the variable pitch face
   (set-face-attribute 'variable-pitch nil
-                      :font "Sarasa Mono SC"
+                      :font "Georgia"
                       :weight 'regular
                       :height 128))
+
 
 
 (if (daemonp)
